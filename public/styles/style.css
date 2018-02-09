@@ -1,0 +1,43 @@
+:root {
+    --revert-main: #373737;
+    --main: #F4F4F4;
+    --accent: #C0B283;
+    --self-accent: #DCD0C0;
+}
+
+.webix_form label {
+    color: var(--revert-main);
+}
+
+.main_toolbar.webix_toolbar {
+    background-color: var(--main);
+}
+
+.main_toolbar .webixtype_base {
+    color: var(--accent);
+}
+
+.main_toolbar .webixtype_base:hover {
+    color: var(--main);
+    background-color: var(--accent);
+}
+
+.webix_el_button button:active, .webix_el_button button:hover, .webix_el_button.primary button:hover {
+    background-color: var(--self-accent);
+    color: var(--main);
+}
+.webix_el_button button {
+    color: var(--accent);
+}
+
+.webix_el_button.primary button {
+    background-color: var(--accent);
+    color: var(--main);
+}
+
+.mt30 {
+    margin-top: 30px !important; 
+}
+.mt40 {
+    margin-top: 40px !important; 
+}

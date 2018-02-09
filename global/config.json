@@ -1,0 +1,12 @@
+{
+    "db": {
+        "development": {
+            "host": "localhost",
+            "name": "book_lib",
+            "user": "root",
+            "password": ""
+        }
+    },
+    "secret": "vfXPtiVmmrMVVuTyNyyfAQrBhprntUsqZpfVaDhO"
+}
+

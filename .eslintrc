@@ -1,0 +1,40 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "globals": {
+        "define": true,
+        "webix": true,
+        "$$": true,
+        "phantom": true,
+        "io": true
+    },
+    "extends": "./node_modules/eslint-xbsoftware/2__single_quotes_and_spaces/.eslintrc",
+    "rules": {
+        "no-extra-parens": "warn",
+        "valid-jsdoc": "warn",
+        "class-methods-use-this": "off",
+        "import/no-dynamic-require": "off",
+        "no-else-return": "off",
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        "max-len": "warn",
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "next"
+            }
+        ]
+    },
+    "plugins": [
+        "import"
+    ]
+}
+
