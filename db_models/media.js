@@ -3,24 +3,12 @@ module.exports = (sequelize, DataTypes) => {
         eBook: {
             type: DataTypes.TEXT,
             allowNull: true,
-            defaultValue: null,
-            get() {
-                return JSON.parse(this.getDataValue('eBook'));
-            },
-            set(val) {
-                this.setDataValue('eBook', JSON.stringify(val));
-            }
+            defaultValue: null
         },
         audioBook: {
             type: DataTypes.TEXT,
             allowNull: true,
-            defaultValue: null,
-            get() {
-                return JSON.parse(this.getDataValue('audioBook'));
-            },
-            set(val) {
-                this.setDataValue('audioBook', JSON.stringify(val));
-            }
+            defaultValue: null
         }
     });
 

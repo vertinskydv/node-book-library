@@ -1,6 +1,5 @@
 import {JetView} from 'webix-jet';
-import {resetState} from '../services/state';
-import userProvider from './../providers/user';
+
 
 export default class Books extends JetView {
     config() {
@@ -10,17 +9,26 @@ export default class Books extends JetView {
                     cols: [
                         {
                             view: 'button',
-                            value: 'Add User',
-                            hidden: true,
+                            id: 'addBookBtn',
+                            value: 'Add New Book',
                             align: 'left',
                             height: 50,
                             width: 130
                         }
+                    ]
+                },
+                {
+                    view: 'datatable',
+                    columns: [
+                        {id: 'title', header: 'Book', fillspace: true}
                     ]
                 }
             ]
         };
     }
     async init() {
+        $$('addBookBtn').attachEvent('onItemClick', () => {
+            this.app.show('/top/addbook');
+        });
     }
 }

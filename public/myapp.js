@@ -8,7 +8,8 @@ webix.ready(async () => {
             register: 'register',
             main: 'main',
             users: 'users',
-            newuser: 'newUser'
+            newuser: 'newUser',
+            addbook: 'addBook'
         }
     };
 

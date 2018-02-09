@@ -1,5 +1,5 @@
-module.exports = (sequelize, DataTypes) => (
-    sequelize.define('book', {
+module.exports = (sequelize, DataTypes) => {
+    const book = sequelize.define('book', {
         name: DataTypes.STRING,
         coverUrl: {
             type: DataTypes.TEXT,
@@ -7,12 +7,12 @@ module.exports = (sequelize, DataTypes) => (
             defaultValue: null
         },
         pagesCount: {
-            type: DataTypes.TINYINT(5),
+            type: DataTypes.INTEGER,
             allowNull: true,
             defaultValue: null
         },
         year: {
-            type: DataTypes.TINYINT(5),
+            type: DataTypes.INTEGER,
             allowNull: true,
             defaultValue: null
         },
@@ -43,13 +43,15 @@ module.exports = (sequelize, DataTypes) => (
         },
         genre: {
             type: DataTypes.STRING,
-            get() {
-                return this.getDataValue('genre').split(';');
-            },
-            set(val) {
-                this.setDataValue('genre', val.join(';'));
-            }
+            allowNull: true,
+            defaultValue: null
         }
-    })
-);
+    });
+
+    book.associate = (models) => {
+        book.hasOne(models.media);
+    };
+
+    return book;
+};
 
