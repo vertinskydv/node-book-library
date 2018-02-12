@@ -84,10 +84,9 @@ export default class Books extends JetView {
             $$('removeBookBtn').enable();
         });
 
-        $$('removeBookBtn').attachEvent('onItemClick', async (data, preserve) => {
+        $$('removeBookBtn').attachEvent('onItemClick', async () => {
             let ids = $$('bookTable').getSelectedId(true, true);
-            debugger;
-            await librarianProvider.removeBooks({ids: ids});
+            await librarianProvider.removeBooks({ids});
         });
     }
 }
