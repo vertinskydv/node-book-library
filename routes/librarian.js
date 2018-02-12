@@ -2,7 +2,9 @@ const models = require('../db_models');
 const router = require('express').Router();
 const path = require('path');
 const fs = require('fs');
+const Sequelize = require('sequelize');
 
+const Op = Sequelize.Op;
 const coverDir = path.normalize(path.join(__dirname, '/..', '/uploads/covers'));
 const eBookDir = path.normalize(path.join(__dirname, '/..', '/uploads/eBooks'));
 const audioBookDir = path.normalize(path.join(__dirname, '/..', '/uploads/audioBooks'));
@@ -58,6 +60,7 @@ router.post('/book', async (req, res) => {
     }
     req.body.year = Number(req.body.year);
     req.body.pagesCount = Number(req.body.pagesCount);
+    req.body.quantity = Number(req.body.quantity);
     const values = req.body;
     const options = {};
 
@@ -80,6 +83,29 @@ router.post('/book', async (req, res) => {
     if (!book) {
         res.status(500).send('Error when adding an book to the database.');
     }
+    res.sendStatus(200);
+});
+
+router.get('/books', async (req, res) => {
+    const books = await models.book.findAll({
+        include: [models.mediaFile]
+    });
+
+    if (!books) {
+        res.status(500).send('Error while querying the database.');
+    }
+    res.send(books);
+});
+
+router.delete('/book/', async (req, res) => {
+    req.body.ids = JSON.parse(req.body.ids);
+    const books = await models.book.findAll({where: {id: {[Op.in]: req.body.ids}}});
+    if (!books) {
+        res.status(500).send('Error while querying the database.');
+    }
+    books.forEach((book) => {
+        book.destroy();
+    });
     res.sendStatus(200);
 });
 

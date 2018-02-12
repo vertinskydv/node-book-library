@@ -45,11 +45,16 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
             defaultValue: null
+        },
+        quantity: {
+            type: DataTypes.INTEGER
         }
     });
 
     book.associate = (models) => {
-        book.hasOne(models.mediaFile);
+        book.hasOne(models.mediaFile, {
+            onDelete: 'CASCADE'
+        });
     };
 
     return book;

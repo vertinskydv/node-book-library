@@ -41,3 +41,7 @@
 .mt40 {
     margin-top: 40px !important; 
 }
+
+.cell-img {
+    max-height: 100px;
+}

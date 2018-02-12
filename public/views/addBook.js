@@ -31,7 +31,8 @@ export default class AddBook extends JetView {
                                                 {view: 'text', label: 'Publishing Country', name: 'publishingCountry', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'},
                                                 {view: 'text', label: 'Genre', name: 'genre', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'},
                                                 {view: 'text', label: 'Year', name: 'year', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'},
-                                                {view: 'text', label: 'Pages count', name: 'pagesCount', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'}
+                                                {view: 'text', label: 'Pages count', name: 'pagesCount', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'},
+                                                {view: 'text', label: 'Quantity', name: 'quantity', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'}
                                             ]
                                         },
                                         {
@@ -64,7 +65,8 @@ export default class AddBook extends JetView {
                                 genre: webix.rules.isNotEmpty,
                                 year: webix.rules.isNumber,
                                 pagesCount: webix.rules.isNumber,
-                                cover: webix.rules.isNotEmpty
+                                cover: webix.rules.isNotEmpty,
+                                quantity: webix.rules.isNotEmpty
                             }
                         },
                         {}
