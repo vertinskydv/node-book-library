@@ -51,7 +51,7 @@ router.post('/upload/:type', async (req, res) => {
  */
 router.post('/book', async (req, res) => {
     const timestamp = `${Date.now()}-${req.user.id}`;
-    function addTimestamp(fileName, filePath) {
+    function addTimestamp(fileName, filePath) { // add timestamp to filename and return relative path to this file
         let timestampFileName = `${path.basename(fileName, path.extname(fileName))}_${timestamp}${path.extname(fileName)}`;
         fs.renameSync(path.join(filePath, fileName), path.join(filePath, timestampFileName));
         return path.relative(path.join(__dirname, '../uploads'), path.join(filePath, timestampFileName));
