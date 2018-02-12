@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     book.associate = (models) => {
-        book.hasOne(models.media);
+        book.hasOne(models.mediaFile);
     };
 
     return book;

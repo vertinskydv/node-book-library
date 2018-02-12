@@ -15,6 +15,7 @@ app.use(sessionMiddleware);
 app.use(passportMiddleware);
 
 app.use(express.static('./public'));
+app.use(express.static('./uploads'));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
