@@ -31,14 +31,17 @@ export default class AddBook extends JetView {
                                                 {view: 'text', label: 'Publishing Country', name: 'publishingCountry', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'},
                                                 {view: 'text', label: 'Genre', name: 'genre', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'},
                                                 {view: 'text', label: 'Year', name: 'year', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'},
-                                                {view: 'text', label: 'Pages count', name: 'pagesCount', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'}
+                                                {view: 'text', label: 'Pages count', name: 'pagesCount', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'},
+                                                {view: 'text', label: 'Quantity', name: 'quantity', labelWidth: 130, labelAlign: 'right', invalidMessage: 'This fiels can not be empty'}
                                             ]
                                         },
                                         {
                                             rows: [
-                                                {view: 'uploader', label: 'Upload Electronic Book', name: 'eBook', labelWidth: 130, labelAlign: 'right', multiple: 'false', link: 'eBookUploader', upload: '/librarian/upload'},
+                                                {view: 'uploader', label: 'Upload Book Cover', name: 'cover', labelWidth: 130, labelAlign: 'right', multiple: 'false', link: 'bookCoverUploader', upload: '/librarian/upload/cover'},
+                                                {view: 'list', id: 'bookCoverUploader', type: 'uploader', autoheight: true, borderless: true},
+                                                {view: 'uploader', label: 'Upload Electronic Book', name: 'eBook', labelWidth: 130, labelAlign: 'right', multiple: 'false', link: 'eBookUploader', upload: '/librarian/upload/ebook'},
                                                 {view: 'list', id: 'eBookUploader', type: 'uploader', autoheight: true, borderless: true},
-                                                {view: 'uploader', label: 'Upload Audio Book', name: 'audioBook', labelWidth: 130, labelAlign: 'right', multiple: 'false', link: 'audioBookUploader', upload: '/librarian/upload'},
+                                                {view: 'uploader', label: 'Upload Audio Book', name: 'audioBook', labelWidth: 130, labelAlign: 'right', multiple: 'false', link: 'audioBookUploader', upload: '/librarian/upload/audiobook'},
                                                 {view: 'list', id: 'audioBookUploader', type: 'uploader', autoheight: true, borderless: true}
                                             ]
                                         }
@@ -61,7 +64,9 @@ export default class AddBook extends JetView {
                                 publishingCountry: webix.rules.isNotEmpty,
                                 genre: webix.rules.isNotEmpty,
                                 year: webix.rules.isNumber,
-                                pagesCount: webix.rules.isNumber
+                                pagesCount: webix.rules.isNumber,
+                                cover: webix.rules.isNotEmpty,
+                                quantity: webix.rules.isNotEmpty
                             }
                         },
                         {}
